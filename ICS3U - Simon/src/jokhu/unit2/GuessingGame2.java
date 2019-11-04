@@ -1,6 +1,6 @@
 package jokhu.unit2;
 /**
- * GuessingGame.java 
+ * GuessingGame.java  
  * Gets a user to guess a random number and checks if it's the same as the random computer number. Then it tells them if they got it right or wrong.Then it repeats.
  * October 28 2019
  * @author Simon Jokhu

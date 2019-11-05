@@ -18,19 +18,42 @@ public class PrimeNumberBonus {
 		int modTwo=1;
 		int div = 2;
 		int divTwo=2;
-		while (mod != 0 && div<num) {
+		int counter;
+		while (num != numTwo) {
 
-			mod=num%div;
-			div++;	
+			while (mod != 0 && div<num) {
+
+				mod=num%div;
+				div++;
+				
+				
+
+				
+			}
+			if (mod != 0) {
+					System.out.println(num+" is a prime number");	
+				}
+				else {
+					System.out.println(num+" is not a prime number");
+
+				}
+		num++;
+		}
+		//Part 2
 
 
-		}
-		if (mod != 0) {
-			System.out.println(num+" is a prime number");	
-		}
-		else {
-			System.out.println(num+" is not a prime number");
-		}
+
+
+
+
+
+
+
+
+
+
+
+
 
 		while (modTwo != 0 && divTwo<numTwo) {
 

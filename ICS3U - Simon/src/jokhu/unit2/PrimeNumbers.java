@@ -1,12 +1,17 @@
 package jokhu.unit2;
 /**
- * PrimeNumbers.java  
+ * PrimeNumbers.java   
  * Ask a user for a numbers and tells them whether their number is a prime numbers or not.
+ * November 7 2019
+ * @author Simon Jokhu
  */
 import java.util.Scanner;
 
 public class PrimeNumbers {
-
+	/**
+	 * Beginning of Prime Number program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 

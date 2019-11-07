@@ -1,73 +1,60 @@
 package jokhu.unit2;
 /**
- * PrimeNumberBonus.java 
- * Ask a user for two numbers and tells them whether their numbers are prime numbers or not.
- */
+ * PrimeNumberBonus.java  
+ * Ask a user for two numbers and tells them whether their numbers are prime numbers or not and the numbers in between.
+ * November 7 2019
+ * @author Simon Jokhu
+ */ 
+
 import java.util.Scanner;
 
 public class PrimeNumberBonus {
-
+	/**
+	 * Beginning of Prime Number-Bonus program
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-
-		System.out.println("What are two of your numbers?");
+/*
+ *  Ask for the user's number and tells them to make sure their first number is smaller than the second.
+ *  Then it declares the num in variables
+ *  Adds a modulus variable called mod
+ *  adds a division variable
+ *  Then it determines whether the numbers are prime or not
+ */
+		System.out.println("What are two of your numbers?\nMake sure your first number is larger than the second number.");
 		int num =sc.nextInt();
 		int numTwo = sc.nextInt();
-		int mod = 1;
-		int modTwo=1;
+		int mod;
 		int div = 2;
-		int divTwo=2;
-		int counter;
+		numTwo++;
+	
 		while (num != numTwo) {
 
-			while (mod != 0 && div<num) {
+			do{
 
 				mod=num%div;
 				div++;
-				
-				
 
-				
-			}
+
+
+
+			}while (mod != 0 && div<num);
 			if (mod != 0) {
-					System.out.println(num+" is a prime number");	
-				}
-				else {
-					System.out.println(num+" is not a prime number");
+				System.out.println(num+" is a prime number");	
+			}
+			else if(num==2){
+				System.out.println(num+" is a prime number");
+			}
+			else {
+				System.out.println(num+" is not a prime number");
 
-				}
-		num++;
+			}
+			num++;
+			div=2;
 		}
-		//Part 2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		while (modTwo != 0 && divTwo<numTwo) {
-
-			modTwo=numTwo%divTwo;
-			divTwo++;	
-
-
-		}
-		if (modTwo != 0) {
-			System.out.println(numTwo+" is a prime number");	
-		}
-		else {
-			System.out.println(numTwo+" is not a prime number");
-		}
 	}
 
 }

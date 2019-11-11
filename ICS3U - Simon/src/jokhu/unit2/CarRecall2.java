@@ -14,8 +14,8 @@ public class CarRecall2 {
 			if (carModel == 199 || carModel== 179 || carModel== 189 || carModel==190 || carModel== 191|| carModel== 192|| carModel== 193|| carModel== 194|| carModel== 195|| carModel== 221|| carModel== 780) { 
 				System.out.println("Your car is defective. It must be repaired.");
 				System.out.println("What is your car model?");
-			}
-			else {
+			} 
+			else{
 				System.out.println("Your Car is not defective");
 				System.out.println("What is your car model?");
 			}
@@ -24,6 +24,4 @@ public class CarRecall2 {
 		System.out.println("Done!");
 	}
 }
-
-
 

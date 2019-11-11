@@ -15,11 +15,12 @@ public class PrimeNumbers {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-
-		System.out.println("What are two of your numbers?");
+//Ask for two numbers and gets a division and modulus operator variable
+		System.out.println("What is your numbers?");
 		int num =sc.nextInt();
 		int mod = 1;
 		int div = 2;
+		//Checks to see if the number is prime or not
 		while (mod != 0 && div<num) {
 
 			mod=num%div;
@@ -27,6 +28,7 @@ public class PrimeNumbers {
 
 
 		}
+		//Tells you if your number is prime or not
 		if (mod != 0) {
 			System.out.println(num+" is a prime number");	
 		}

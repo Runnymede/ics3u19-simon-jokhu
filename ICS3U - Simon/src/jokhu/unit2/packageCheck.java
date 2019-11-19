@@ -1,6 +1,6 @@
 package jokhu.unit2;
 /**
- * packageCheck.java 
+ * packageCheck.java  
  * Ask the user the weight and dimensions of their package and determines what's wrong with it or if it can be accepted.
  * October 15,2019
  * @author Simon Jokhu

@@ -1,5 +1,10 @@
 package jokhu.unit2;
-
+/**
+ * VowelCount.java  
+ * Counts vowel from what the user inputs
+ * November 20,2019
+ * @author Simon Jokhu
+ */
 import java.util.Scanner;
 
 public class VowelCount {
@@ -9,22 +14,24 @@ public class VowelCount {
 
 		
 		System.out.print("Enter Text:");
-	 String text = sc.next();
+	 String text = sc.nextLine();
+	 int letter=0;
 	 int counter=0;
-	 int counterTwo=0;
-	 for(text.charAt(counter);text.charAt(counter)>0;counter++) {
-		 
-		 if (text == 65) {
-			 counterTwo++;
-		 } else if (text=e) {
-			 counterTwo++;
-		 } else if (text=i) {
-			 counterTwo++;
-		 } else if (text=o) {
-			 counterTwo++;
-		 } else if (text=u) {
-			 counterTwo++;
+	 for(text.charAt(letter);letter<text.length();letter++) {
+		 //checks to see if a value has a vowel in it
+		 if (text.charAt(letter) == 'a') {
+			 counter++;
+		 } else if (text.charAt(letter) == 'e') {
+			 counter++;
+		 } else if (text.charAt(letter) == 'i') {
+			 counter++;
+		 } else if (text.charAt(letter) == 'o') {
+			 counter++;
+		 } else if (text.charAt(letter) == 'u') {
+			 counter++;
 		 }
 	}
+	 //tells user the total value
+	 System.out.println("Your total values are "+counter);
 	}
 }

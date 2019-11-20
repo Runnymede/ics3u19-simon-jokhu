@@ -23,7 +23,7 @@ public class PrimeNumberBonus {
  *  adds a division variable
  *  Then it determines whether the numbers are prime or not
  */
-		System.out.println("What are two of your numbers?\nMake sure your first number is larger than the second number.");
+		System.out.println("What are two of your numbers?\nMake sure your second number is larger than the first number.");
 		int num =sc.nextInt();
 		int numTwo = sc.nextInt();
 		int mod;
@@ -36,8 +36,6 @@ public class PrimeNumberBonus {
 
 				mod=num%div;
 				div++;
-
-
 
 
 			}while (mod != 0 && div<num);

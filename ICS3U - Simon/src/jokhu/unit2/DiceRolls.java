@@ -14,21 +14,18 @@ public class DiceRolls {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int counter=0;
+		
 		int diceRoll = 0;
-		int diceSum=0;
+		int diceRollTwo=0;
+		int total=0;
+		int totalTwo=0;
 		//prints Dice table
 		System.out.println("Dice1 Dice2 Total");
 	//Dice roll gets a value of dice twice then prints the roll
-		while (counter<=1) {
-			counter++;
-			diceSum=diceRoll;
+		for(int counter=0;counter>4;counter++) {
 			diceRoll=(int)(Math.random()*6)+1;
-			System.out.print(diceRoll+"      ");
-			
 		}
-		//adds both rolls of the dice up
-		System.out.print(diceSum+diceRoll);
+		
 	}
 
 }

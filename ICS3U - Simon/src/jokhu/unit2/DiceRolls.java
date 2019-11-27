@@ -14,7 +14,7 @@ public class DiceRolls {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+		//Not finsih does not work
 		int diceRoll = 0;
 		int diceRollTwo=0;
 		int total=0;

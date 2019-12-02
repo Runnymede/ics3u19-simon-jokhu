@@ -10,6 +10,7 @@ public class TicTacToe {
 		// player one loop
 		int end = 1;
 		String again = "";
+		int tieCounter=0;
 		do {
 			end = 1;
 			char[][] board = new char[3][3];
@@ -17,19 +18,20 @@ public class TicTacToe {
 				if (end != 1)
 					break;
 				// Ask player for where they would like to go
-				System.out.println("What row would you like to go in starting from 0, player 1");
+				System.out.println("What row would you like to go, player 1");
 				int playerOneR = sc.nextInt() - 1;
-				System.out.println("What coloum would you like to go in starting from 0, player 1");
+				System.out.println("What coloum would you like to go, player 1");
 				int playerOneC = sc.nextInt() - 1;
+				tieCounter++;
 				// Checks to see if a spot has been taken
 				do {
 					if (board[playerOneR][playerOneC] != 'x' && board[playerOneR][playerOneC] != 'o') {
 						board[playerOneR][playerOneC] = 'x';
 						break;
 					} else {
-						System.out.println("Already Taken! What row would you like to go in starting from 0, player 1");
+						System.out.println("Already Taken! What row would you like to go, player 1");
 						playerOneR = sc.nextInt() - 1;
-						System.out.println("What coloum would you like to go in starting from 0, player 1");
+						System.out.println("What coloum would you like to go, player 1");
 						playerOneC = sc.nextInt() - 1;
 					}
 				} while (board[playerOneR][playerOneC] != ' ');
@@ -66,8 +68,9 @@ public class TicTacToe {
 					System.out.println("Player 1 wins");
 					end++;
 				}
-				if (end != 1)
+				if (end != 1||tieCounter==9)
 					break;
+				//prints
 				for (int row = 0; row < board.length; row++) {
 					for (int col = 0; col < board[0].length; col++) {
 						System.out.print("|" + board[row][col] + "|");
@@ -80,20 +83,21 @@ public class TicTacToe {
 					if (end != 1)
 						break;
 					counter = 0;
-					System.out.println("What row would you like to go in starting from 0, player 2");
+					System.out.println("What row would you like to go, player 2");
 					int playerTwoR = sc.nextInt() - 1;
-					System.out.println("What coloum would you like to go in starting from 0, player 2");
+					System.out.println("What coloum would you like to go, player 2");
 					int playerTwoC = sc.nextInt() - 1;
-					tieCounter++;
+			tieCounter++;
 					// Checks to see if a spot is already taken.
 					do {
 						if (board[playerTwoR][playerTwoC] != 'x' && board[playerTwoR][playerTwoC] != 'o') {
 							board[playerTwoR][playerTwoC] = 'o';
+							break;
 						} else {
 							System.out.println(
-									"Already Taken! What row would you like to go in starting from 0, player 2");
+									"Already Taken! What row would you like to go, player 2");
 							playerTwoR = sc.nextInt() - 1;
-							System.out.println("What coloum would you like to go in starting from 0, player 2");
+							System.out.println("What coloum would you like to go, player 2");
 							playerTwoC = sc.nextInt() - 1;
 						}
 					} while (board[playerTwoR][playerTwoC] != ' ');
@@ -130,7 +134,7 @@ public class TicTacToe {
 						System.out.println("Player 2 wins");
 						end++;
 					}
-					if (end != 1)
+					if (end != 1||tieCounter==9)
 						break;
 					
 					// Prints Out tic tac toe board
@@ -143,9 +147,9 @@ public class TicTacToe {
 
 				}
 			}
+		
 			System.out.println("Would You like to play again?");
 			again = sc.next();
 		} while (again.equalsIgnoreCase("yes"));
 	}
-
 }

@@ -1,4 +1,4 @@
-package jokhu.unit2;
+package jokhu.unit3;
 /**
  * DiceRolls.java  
  * Gets two random numbers from 1-6 then adds them up

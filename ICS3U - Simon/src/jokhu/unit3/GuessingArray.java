@@ -1,4 +1,4 @@
-package jokhu.unit2;
+package jokhu.unit3;
 
 import java.util.Scanner;
 
@@ -18,9 +18,10 @@ public class GuessingArray {
 				break;
 
 			}
-		}
 		if (counter<=20) {
 			System.out.println("Darn I should have guessed that.");
+			}
+		
 		}
 	}
 }

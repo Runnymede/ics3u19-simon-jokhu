@@ -8,21 +8,24 @@ public class IsoTriangles {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Give me a number to make a triangle.");
 		int tri = sc.nextInt();
-		int end=0;
-		while(end<=tri){
-			end++;
-		drawSpaces(tri);
-		drawStars(tri);
-		System.out.println();
-		}
 		
+		for(int end=0;end<tri;end++){
+			
+			drawSpaces(tri);
+			drawStars(tri);
+			
+		
+			spaces--;
+			stars+=2;
+			System.out.println();
+		}
+
 	}
-	
+
 	public static void drawSpaces(int x) {
 		int spaces=x-1;
 		int counter=spaces;
-		while (counter>=x)
-			spaces--;
+			
 		while(spaces>0) {
 			System.out.print(" ");
 			spaces--;
@@ -31,14 +34,11 @@ public class IsoTriangles {
 
 	}
 	public static void drawStars(int y) {
-		int stars=1;
-		int counter=y;
-	while (counter>=y)
-		counter+=2;
-		while (stars!=y) {
-			stars+=2;
+	int rows=0;
+		for(int counter=0;counter<y;counter++) {
 			System.out.print("*");
+			if(rows<y)
+				System.out.println();
 		}
-
 	}
 }

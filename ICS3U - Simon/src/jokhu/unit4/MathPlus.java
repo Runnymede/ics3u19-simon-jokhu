@@ -15,11 +15,12 @@ public class MathPlus {
 		System.out.println(max(array));
 		System.out.println(sum(array));
 		System.out.println(average(array));
-		double array2[]= {5,10,6,2,3,4,8};
+		double array2[]= {5,10,6,2,5,3,4,8};
 		System.out.println(min(array2));
 		System.out.println(max(array2));
 		System.out.println(sum(array2));
 		System.out.println(average(array2));
+		System.out.println(median(array2));
 	}
 	/**
 	 * It finds the Minumum of the number in the given array
@@ -131,4 +132,23 @@ public class MathPlus {
 		sum=sum/averageArray.length;		
 		return sum;
 	}
+	public static double median(double[]medianArray) {//{5,10,6,2,3,4,8}
+		double even =0;
+		//rounds 
+		int divider=medianArray.length/2;
+		for(int counter=0;counter<medianArray.length;counter++) {
+			if (medianArray.length%2==0) {
+			even = (medianArray[divider]+medianArray[divider+1])/2;
+			}
+			else 
+				even=medianArray[medianArray.length/2];
+			
+					
+		}
+		return even;
+	}
+	//public static double mode(double[]modeArray) {
+		
+	//}
+	
 }

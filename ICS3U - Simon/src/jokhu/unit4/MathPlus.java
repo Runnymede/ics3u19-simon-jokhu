@@ -15,12 +15,13 @@ public class MathPlus {
 		System.out.println(max(array));
 		System.out.println(sum(array));
 		System.out.println(average(array));
-		double array2[]= {5,10,6,2,5,3,4,8};
+		double array2[]= {2,3,4,5,6,8,10};
 		System.out.println(min(array2));
 		System.out.println(max(array2));
 		System.out.println(sum(array2));
 		System.out.println(average(array2));
 		System.out.println(median(array2));
+		System.out.println(mode(array2));
 	}
 	/**
 	 * It finds the Minumum of the number in the given array
@@ -132,9 +133,9 @@ public class MathPlus {
 		sum=sum/averageArray.length;		
 		return sum;
 	}
-	public static double median(double[]medianArray) {//{5,10,6,2,3,4,8}
+	public static double median(double[]medianArray) {//{5,10,6,2,5,3,4,8}
 		double even =0;
-		//rounds 
+		//int chops off
 		int divider=medianArray.length/2;
 		for(int counter=0;counter<medianArray.length;counter++) {
 			if (medianArray.length%2==0) {
@@ -147,8 +148,37 @@ public class MathPlus {
 		}
 		return even;
 	}
-	//public static double mode(double[]modeArray) {
-		
-	//}
+	public static double mode(double[]modeArray) {
+		int sameCheck=1;
+		double modeCounter=0;
+		for (int counter=0;counter<modeArray.length;counter++) {
+			if (modeArray[counter]==modeArray[sameCheck]) {
+				modeCounter++;
+				if (modeCounter==1){
 	
+				}
+			}
+			
+		}
+		return modeCounter;
+	}
+	public static boolean prime(int[]primeArray) {
+		for(int counter=0;counter<primeArray.length;counter++) {
+		 int mod= 1;
+		int div = 2;
+		//Checks to see if the number is prime or not
+		int num=primeArray[0];
+		while (mod != 0 && div<num) {
+
+			mod=num%div;
+			div++;	
+		}
+		
+	}
+}
+	public static long factorial(int factorialArray) {
+		for(int counter=0;counter<factorialArray.length;counter++){
+			
+		}
+	}
 }

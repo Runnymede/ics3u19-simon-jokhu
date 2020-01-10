@@ -180,7 +180,7 @@ public class MathPlus {
 			div++;	
 			if (mod!=0) {
 				num=false;
-			}
+			}a
 		}
 		
 	}

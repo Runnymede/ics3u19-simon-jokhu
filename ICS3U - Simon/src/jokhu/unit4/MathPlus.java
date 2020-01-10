@@ -22,6 +22,11 @@ public class MathPlus {
 		System.out.println(average(array2));
 		System.out.println(median(array2));
 		System.out.println(mode(array2));
+		int prime=6;
+		System.out.println(prime(prime));
+		long factor=5;
+		System.out.println(factorial((int) factor));
+		
 	}
 	/**
 	 * It finds the Minumum of the number in the given array
@@ -162,23 +167,32 @@ public class MathPlus {
 		}
 		return modeCounter;
 	}
-	public static boolean prime(int[]primeArray) {
-		for(int counter=0;counter<primeArray.length;counter++) {
+	public static boolean prime(int primeArray) {
+		boolean num = true;
+		for(int counter=0;counter<primeArray;counter++) {
 		 int mod= 1;
 		int div = 2;
 		//Checks to see if the number is prime or not
-		int num=primeArray[0];
-		while (mod != 0 && div<num) {
+	
+		while (mod != 0 && div<primeArray) {
 
-			mod=num%div;
+			mod=primeArray%div;
 			div++;	
+			if (mod!=0) {
+				num=false;
+			}
 		}
 		
 	}
+		return num;
 }
 	public static long factorial(int factorialArray) {
-		for(int counter=0;counter<factorialArray.length;counter++){
-			
+		long factor=factorialArray;
+		for(int counter=1;counter<factorialArray;counter++){
+	
+			factor*=counter;
 		}
+		return factor;
 	}
+	public static 
 }

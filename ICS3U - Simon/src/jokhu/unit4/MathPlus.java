@@ -194,5 +194,7 @@ public class MathPlus {
 		}
 		return factor;
 	}
-	public static 
+	public static numberOfFactors(intnumFactorArray) {
+		
+	}
 }

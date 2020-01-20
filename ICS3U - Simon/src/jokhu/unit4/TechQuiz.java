@@ -1,80 +1,106 @@
 package jokhu.unit4;
-
+/**
+ * TechQuiz.java
+ * Ask the user what topic they would like to practice on. Then gives them multiple choice questions that they can answer. Then at the end it gives the user their score.
+ * January 20, 2020
+ * @author Simon Jokhu
+ */
 import java.util.Scanner;
 
 public class TechQuiz {
-
-	public static void main(String[] args) {
+	/**
+	 * Beginning of TechQuiz program
+	 * Has Global variables that get the info from other methods
+	 * @param args
+	 */
+	static String []quiz= new String[11];
+	static int []answer = new int[11];
+	static String [][]choices = new String[11][4];
+	//static String restart = new String();
+	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
-
+		/* Welcome message 
+		 * Ask for name 
+		 * What topic they would like to work on while providing 3 options
+		 * If the user chooses an unavailable option the program will prompt them to pick again.
+		 */
 		System.out.println("Welcome to Tech practice/quiz/review program!");
-		System.out.println("What topic would you like to work on?");
-		System.out.println("1.Loop questions 2. MathClass, string methods and switch statements");
-		System.out.println("3.Primitive Data types and object types 4.Boolean");
-		int userInput=sc.nextInt();
-		int question=0;
-		if (userInput==0)
-			System.out.print(loopQuiz(quiz));
-			for(int counter=loopQuiz(quiz[0]);counter==0;counter--){
-				loopQuiz(quiz)[question];
-				loopQuiz (choices)[question];
-				int userAnswer=sc.nextInt;
-				if userAnswer=loopQuiz(answer)[question]{
-					System.out.print("correct");
+		System.out.println("What is your name?");
+		String name=sc.nextLine();
+		System.out.println("What topic would you like to work on "+name+"?");
+		String restart;
+		do {
+			System.out.println("1.Loop questions 2. MathClass, String Methods and Switch Statements");
+			System.out.println("3.Boolean Expressions");
+			int grade=0;
+			int userInput=0;
+			do {
+				userInput=sc.nextInt();
+				if (userInput==1) {
+					loopQuiz();
+				}
+				else if (userInput==2){
+					mathClassQuiz();
+				}
+				else if (userInput==3) {
+					booleanExpressions();
+				}
+				else {
+					System.out.println("Invalid topic choose again.");
+				}
+			}while(userInput<1 ||userInput>3);
+
+			/* This Loop pulls the information from the global variables
+			 * Then it Prints the question, Options and checks to see if their answer is correct or incorrect
+			 * If the user gets it right the grade counter will go up which is used for keeping track of their score
+			 */
+			for(int counter=0;counter<=10;counter++){
+				Thread.sleep(200);
+				System.out.println(quiz[counter]);
+				for(int choiceCounter=0;choiceCounter<=3;choiceCounter++) {
+					Thread.sleep(600);
+					System.out.println(choices[counter][choiceCounter]);
+				}
+				int userAnswer=sc.nextInt();
+				if (userAnswer==answer[counter]){
+					System.out.println("Correct");
+					grade++;
+
 				}
 				else{
-					System.out.print("incorrect");
+					System.out.println("Incorrect");
 				}
-				question++;
 			}
-
-		else if (userInput==2){
-			for(int counter=mathClass(quiz).length;counter==0;counter--){
-				mathClass(quiz)[question];
-				mathClass(choices)[question];
-				int userAnswer=sc.readInt;
-				If userAnswer=mathClass(answer)[question]{
-					System.out.print("correct");
-				}
-				else{
-					System.out.print("incorrect");
-				}
-				question++;
-			}
-			}
-		
-		else {
-			for(int counter=booleanExpressions(quiz).length;counter==0;counter--){
-				booleanExpressions(quiz)[question];
-				booleanExpressions(choices)[question];
-				int userAnswer=sc.readInt;
-				if (userAnswer=booleanExpressions(answer)[question]){
-					System.out.print("correct");
-				}
-				else{
-					System.out.print("incorrect");
-				}
-				question++;
-			}
-		}
-		System.out.println("would you like to try again");
-		String restart =sc.readline;
-
-
+			//Does calculations for final percentage
+			double percentage = 0;
+			percentage=(grade/11.0)*100*100;
+			percentage=Math.round(percentage);
+			percentage=percentage/100;
+			
+			//Prints results for their score, percentage and ask if they would like to try again
+			System.out.println("Okay "+name+" your score is "+grade+" out of 11");
+			System.out.println("That is "+percentage+"%");
+			System.out.println("Would you like to try again. Yes or No");
+			restart=sc.next();
+		}while(restart.equalsIgnoreCase("yes"));
+		System.out.println("Thanks for using TechQuiz.java");
 	}
-
-	public static String loopQuiz(String []quiz,int[]answer,String [][]choices) {
-		quiz[0] = "What is the difference between do-while and while loop?";
-		quiz[1] = "What are for-loops good for?";
-		quiz[2] = "What is debugging used for?";
-		quiz[3] = "Which is the correct order of making a while loop?";
-		quiz[4] = "A loop that repeats a specified number times is know as a _____.";
-		quiz[5] = "In all but rare cases, loops must contain within themselves";
-		quiz[6] = "If a loop does not contain a way to terminate, it is called";
-		quiz[7] = "What is the number of iterations for the following Loop\n for (int i=1;i<=n;i++) {\n}";
-		quiz[8] = "What is the number of iterations for the following Loop\n for (int i=1;i<n;i++) {\n}";
-		quiz[9] = "What is an example of a primitive data type?";
-		quiz[10]= "What is an example of an object data type";
+	/**
+	 * It contains questions, choices and answers for the loop quiz
+	 * It sends all the information to the global variable when needed
+	 */
+	public static void loopQuiz() {
+		quiz[0] = "1.What is the difference between do-while and while loop?";
+		quiz[1] = "2.What are for-loops good for?";
+		quiz[2] = "3.What is debugging used for?";
+		quiz[3] = "4.Which is the correct order of making a while loop?";
+		quiz[4] = "5.A loop that repeats a specified number times is know as a _____.";
+		quiz[5] = "6.In all but rare cases, loops must contain within themselves";
+		quiz[6] = "7.If a loop does not contain a way to terminate, it is called";
+		quiz[7] = "8.What is the number of iterations for the following Loop\n for (int i=1;i<=n;i++) {\n}";
+		quiz[8] = "9.What is the number of iterations for the following Loop\n for (int i=1;i<n;i++) {\n}";
+		quiz[9] = "10.What is an example of a primitive data type?";
+		quiz[10]= "11.What is an example of an object data type?";
 
 		choices[0][0]="1.Do-while loops only work if a condition is met";
 		//		
@@ -130,32 +156,33 @@ public class TechQuiz {
 		//
 		choices[8][3]="4.n-1";
 
-		choices[9][0]="1.";
-		choices[9][1]="2.";
-		choices[9][2]="3.";
-		choices[9][3]="4.";
-		
-		choices[10][0]="1.";
-		choices[10][1]="2.";
-		choices[10][2]="3.";
-		choices[10][3]="4.";
-				
+		choices[9][0]="1.char";
+		choices[9][1]="2.int";
+		choices[9][2]="3.double";
+		choices[9][3]="4.All of the Above";
+
+		choices[10][0]="1.String";
+		choices[10][1]="2.Boolean";
+		choices[10][2]="3.long";
+		choices[10][3]="4.All of the above";
+
 		answer[0]=2;
 		answer[1]=3;
 		answer[2]=4;
 		answer[3]=3;
-		answer[4]=4;
+		answer[4]=1;
 		answer[5]=3;
 		answer[6]=3;
 		answer[7]=2;
 		answer[8]=4;
-		answer[9]=;
-		answer[10]=;
-		return answer;
-		return choices;
-		return quiz;
+		answer[9]=4;
+		answer[10]=1;
 	}
-	public static String mathClassQuiz(String []quiz,int[]answer,String [][]choices) {
+	/**
+	 * It contains questions, choices and answers for the mathClass Quiz
+	 * It sends all the information to the global variable when needed
+	 */
+	public static void mathClassQuiz() {
 		quiz[0] = "1.What does math.abs do?";
 		quiz[1] = "2.What does math.cbrt do";
 		quiz[2] = "3.what does math.rint do?";
@@ -166,6 +193,7 @@ public class TechQuiz {
 		quiz[7] = "8.What does str.equals(y) do?";
 		quiz[8] = "9.what does z.trim do?";
 		quiz[9] = "10.What does word.split(\" \") do?";
+		quiz[10] = "11.What do object data types store?";
 
 		choices[0][0]="1.It returns all positives to negatives and positives to negatives";	
 		choices[0][1]="2.It returns negatives to positives";
@@ -203,11 +231,11 @@ public class TechQuiz {
 		choices[5][2]="3.It doesn't end";
 		choices[5][3]="4.When It reaches an invalid statement";
 
-		choices[6][0]="1.Returns the portion of string a from 3 to 6";
+		choices[6][0]="1.Returns the portion of string a from index 3 to 6";
 		//
-		choices[6][1]="2.Returns the portion of string a from 3 to 5";
-		choices[6][2]="3.Returns the portion of string a at point 3 and point 6";
-		choices[6][3]="4.Returns the portion of string a at point 3 and point 5";
+		choices[6][1]="2.Returns the portion of string a from index 3 to 5";
+		choices[6][2]="3.Returns the portion of string a at index 3 and point 6";
+		choices[6][3]="4.Returns the portion of string a at index 3 and point 5";
 
 		choices[7][0]="1.Returns false if the contents of string is exatly the same as the contens of string y";
 		choices[7][1]="2.Returns true if the contents of string is almost exatly the same as the contens of string y";
@@ -226,6 +254,11 @@ public class TechQuiz {
 		choices[9][2]="3.Splits a string at every space";
 		choices[9][3]="4.Splits a string at every white space character";
 
+		choices[10][0]="1.They store multiple objects data types";
+		choices[10][1]="2.They store multiple primitive data types";
+		choices[10][2]="3.They store multible variables";
+		choices[10][3]="4.None of the above";
+
 		answer[0]=4;
 		answer[1]=1;
 		answer[2]=2;
@@ -236,11 +269,13 @@ public class TechQuiz {
 		answer[7]=4;
 		answer[8]=1;
 		answer[9]=3;
-		return answer;
-		return choices;
-		return quiz;
+		answer[10]=2;
 	}
-	public static String booleanExpressions(String []quiz,int[]answer,String [][]choices) {
+	/**
+	 * It contains questions, choices and answers for the booleanExpresion quiz
+	 * It sends all the information to the global variable when needed
+	 */
+	public static void booleanExpressions() {
 		quiz[0] = "1.What does || operator mean?";
 		quiz[1] = "2.What does && operator mean?";
 		quiz[2] = "3.What does ! operator do?";
@@ -251,6 +286,7 @@ public class TechQuiz {
 		quiz[7] = "8.Suppose x is one. What is x after x+=2";
 		quiz[8] = "9.Wgat will be printed when the following code is executed?\ndouble x = 45678.259;\n DecimalFormat formatter=new DecimalFormat(\"#,###,##0.00\");\n System.out.println(formatter.format(x));";
 		quiz[9] = "10.Which of the following is the correct expression that evaluates to true if the number x is between 1 and 100 or the number is negative?";
+		quiz[10] = "11.What do primitive data types store?";
 
 		choices[0][0]="1.It seperates two varibles";	
 		choices[0][1]="2.It means Or";
@@ -302,6 +338,11 @@ public class TechQuiz {
 		choices[9][2]="3.((x<100)&&(x>1))||(x<0)";
 		choices[9][3]="4.((x<100)&&(x>1))&&(x<0)";
 
+		choices[10][0]="1.The store multiple object data types";
+		choices[10][1]="2.They store one value";
+		choices[10][2]="3.They store old variables";
+		choices[10][3]="4.All of the above";
+
 		answer[0]=2;
 		answer[1]=4;
 		answer[2]=3;
@@ -312,8 +353,8 @@ public class TechQuiz {
 		answer[7]=4;
 		answer[8]=4;
 		answer[9]=3;
-		return answer;
-		return choices;
-		return quiz;
+		answer[10]=2;
+
 	}
+
 }
